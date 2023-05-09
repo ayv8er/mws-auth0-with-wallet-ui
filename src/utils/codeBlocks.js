@@ -31,9 +31,8 @@ export const magic = new Magic(
 );
 `;
 
-export const app = `const { user, isAuthenticated, getIdTokenClaims } = useAuth0();
-
-function Protected() {
+export const app = `function App() {
+    const { user, isAuthenticated, getIdTokenClaims } = useAuth0();
 
     useEffect(() => {
         if (isAuthenticated) {
