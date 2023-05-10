@@ -13,7 +13,7 @@ function Protected() {
           <br />
           <CodeBlock text={app} language="javascript" theme={atomOneDark} />
           <br />
-          <li>Header - Render Magic Wallet UI and display Auth0 logout</li>
+          <li>Header - Render Magic Wallet UI</li>
           <br />
           <CodeBlock
             text={logOutHeader}
