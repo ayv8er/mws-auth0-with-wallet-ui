@@ -18,10 +18,13 @@
   border-radius: 500px;
 }
 
-.nav-links {
+.nav-logo {
   display: flex;
-  justify-content: space-between;
-  width: 200px;
+}
+
+.nav-login {
+  display: flex;
+  align-items: center;
 }
 
 .nav-login:hover {

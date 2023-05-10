@@ -6,7 +6,9 @@ function Header() {
   const { loginWithRedirect, isAuthenticated, logout } = useAuth0();
 
   const showUI = async () => {
-    await magic.wallet.showUI();
+    await magic.wallet.showUI().on("disconnect", () => {
+      logout();
+    });
   };
 
   return (
@@ -26,13 +28,8 @@ function Header() {
           />
         </a>
         {isAuthenticated ? (
-          <div className="nav-links">
-            <div className="nav-login" onClick={showUI}>
-              Wallet
-            </div>
-            <div className="nav-login" onClick={logout}>
-              Logout
-            </div>
+          <div className="nav-login" onClick={showUI}>
+            Wallet
           </div>
         ) : (
           <div className="nav-login" onClick={loginWithRedirect}>
