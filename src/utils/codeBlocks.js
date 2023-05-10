@@ -14,8 +14,10 @@ function Header() {
     const { loginWithRedirect } = useAuth0();
     
     return (
-        <header onClick={loginWithRedirect}>
-            Login
+        <header>
+            <div onClick={loginWithRedirect}>
+                Login
+            </div>    
         </header>
     );
 }`;
@@ -59,16 +61,15 @@ function Header() {
     const { logout } = useAuth0();
 
     const showUI = async () => {
-        await magic.wallet.showUI();
+        await magic.wallet.showUI().on("disconnect", () => {
+            logout();
+        });
     };
     
     return (
         <header>
             <div onClick={showUI}>
                 Wallet
-            </div>
-            <div onClick={logout}>
-                Logout
             </div>
         </header>
     );
