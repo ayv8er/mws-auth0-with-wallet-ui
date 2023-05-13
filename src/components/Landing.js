@@ -6,7 +6,16 @@ function Landing() {
   return (
     <div className="landing-container">
       <div className="landing">
-        <h2>React App (MWS + Auth0 + Wallet UI)</h2>
+        <h2>
+          React App (MWS + Auth0 + Wallet UI){" - "}
+          <a
+            href="https://github.com/ayv8er/mws-auth0-with-wallet-ui"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Repo
+          </a>
+        </h2>
         <ul>
           <li>
             Wrap application in Auth0Provider{" - "}

@@ -6,7 +6,16 @@ function Protected() {
   return (
     <div className="protected-container">
       <div className="protected">
-        <h2>React App (MWS + Auth0 + Wallet UI)</h2>
+        <h2>
+          React App (MWS + Auth0 + Wallet UI){" - "}
+          <a
+            href="https://github.com/ayv8er/mws-auth0-with-wallet-ui"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Repo
+          </a>
+        </h2>
         <ul>
           <li>Provision Magic wallet in useEffect</li>
           <br />
