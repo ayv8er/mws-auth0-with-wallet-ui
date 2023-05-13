@@ -27,7 +27,8 @@ import { OpenIdExtension } from "@magic-ext/oidc";
 
 export const magic = new Magic(
   "{YOUR_MAGIC_PUBLISHABLE_API_KEY}",
-    {
+    {    
+        network: "goerli",
         extensions: [new OpenIdExtension()],
     }
 );
