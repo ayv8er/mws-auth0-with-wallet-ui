@@ -7,13 +7,12 @@ function Protected() {
     <div className="protected-container">
       <div className="protected">
         <h2>React App (MWS + Auth0 + Wallet UI)</h2>
-        <p>Post Login</p>
         <ul>
-          <li>Provision Magic wallet upon successful Auth0 login</li>
+          <li>Provision Magic wallet in useEffect</li>
           <br />
           <CodeBlock text={app} language="javascript" theme={atomOneDark} />
           <br />
-          <li>Header - Render Magic Wallet UI</li>
+          <li>Header - Render Magic Wallet UI with logout</li>
           <br />
           <CodeBlock
             text={logOutHeader}

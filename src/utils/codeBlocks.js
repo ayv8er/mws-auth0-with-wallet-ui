@@ -17,7 +17,7 @@ function Header() {
         <header>
             <div onClick={loginWithRedirect}>
                 Login
-            </div>    
+            </div>
         </header>
     );
 }`;
@@ -26,29 +26,33 @@ export const magic = `import { Magic } from "magic-sdk";
 import { OpenIdExtension } from "@magic-ext/oidc";
 
 export const magic = new Magic(
-  <MAGIC_PUBLISHABLE_API_KEY>,
-  {
-    extensions: [new OpenIdExtension()],
-  }
+  "{YOUR_MAGIC_PUBLISHABLE_API_KEY}",
+    {
+        extensions: [new OpenIdExtension()],
+    }
 );
 `;
 
-export const app = `function App() {
-    const { user, isAuthenticated, getIdTokenClaims } = useAuth0();
+export const app = `import { useCallback, useEffect } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
+import { magic } from "./libs/magic";
 
-    useEffect(() => {
-        if (isAuthenticated) {
-          connectWallet();
-        }
-    }, [user]);
-    
-    const connectWallet = async () => {
+function App() {
+    const { isAuthenticated, getIdTokenClaims } = useAuth0();
+
+    const connectWallet = useCallback(async () => {
         const token = await getIdTokenClaims();
         await magic.openid.loginWithOIDC({
             jwt: token.__raw,
             providerId: process.env.REACT_APP_MAGIC_PROVIDER_ID,
         });
-    };
+    }, [getIdTokenClaims]);
+
+    useEffect(() => {
+        if (isAuthenticated) {
+          connectWallet();
+        }
+    }, [connectWallet, isAuthenticated]);
     
     return (...);
 }

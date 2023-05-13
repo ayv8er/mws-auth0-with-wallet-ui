@@ -7,13 +7,16 @@ function Landing() {
     <div className="landing-container">
       <div className="landing">
         <h2>React App (MWS + Auth0 + Wallet UI)</h2>
-        <p>Prior to Login</p>
         <ul>
           <li>
-            Wrapped application in the Auth0Provider per{" "}
-            <a href="https://aws.amazon.com/" target="_blank" rel="noreferrer">
+            Wrap application in Auth0Provider{" - "}
+            <a
+              href="https://auth0.com/docs/libraries/auth0-react"
+              target="_blank"
+              rel="noreferrer"
+            >
               Auth0 React SDK docs
-            </a>{" "}
+            </a>
           </li>
           <br />
           <CodeBlock
@@ -23,17 +26,27 @@ function Landing() {
             theme={atomOneDark}
           />
           <br />
-          <li>Header - Display Auth0 redirect login</li>
+          <li>
+            Instantiate{" "}
+            <a
+              href="https://magic.link/docs/auth/api-reference/client-side-sdks/web#constructor-NaN"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Magic
+            </a>{" "}
+            with OIDC extension
+          </li>
+          <br />
+          <CodeBlock text={magic} language="javascript" theme={atomOneDark} />
+          <br />
+          <li>Header - Start Auth0 loginWithRedirect flow</li>
           <br />
           <CodeBlock
             text={logInHeader}
             language="javascript"
             theme={atomOneDark}
           />
-          <br />
-          <li>Instantiate Magic with OIDC extension</li>
-          <br />
-          <CodeBlock text={magic} language="javascript" theme={atomOneDark} />
         </ul>
       </div>
     </div>
