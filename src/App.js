@@ -11,6 +11,7 @@ function App() {
 
   const connectWallet = useCallback(async () => {
     const token = await getIdTokenClaims();
+    console.log('ID TOKEN', token.__raw);
     await magic.openid.loginWithOIDC({
       jwt: token.__raw,
       providerId: process.env.REACT_APP_MAGIC_PROVIDER_ID,
